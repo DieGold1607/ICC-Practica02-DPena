@@ -21,22 +21,22 @@ public class TiempoDeInversion {
         String hacerOtra = ""; 
 
         System.out.println("Bienvenido al simulador de inversiones de Banco Kala");
-        
-        do {
-            System.out.println("Por favor, escoge alguna de las opciones disponibles:");
-            System.out.println("1. Simular inversión");
-            System.out.println("2. Abandonar tus sueños.");
+        System.out.println("Por favor, escoge alguna de las opciones disponibles:");
+        System.out.println("1. Simular inversión");
+        System.out.println("2. Abandonar tus sueños.");
 
-            String opcion = in.nextLine().trim();
+        String opcion = in.nextLine().trim();
 
-            if (opcion.equals("1")) {
-                System.out.println("Perfecto, has escogido la opción 1. Vamos a perseguir ese sueño.");
-                
-                System.out.println("Por favor, ingresa tu nombre completo para poder iniciar la simulación de inversión.");
-                String nombreCompleto = in.nextLine().trim();
-        
+        if (opcion.equals("1")) {
+            System.out.println("Perfecto, has escogido la opción 1. Vamos a perseguir ese sueño.");
+            
+            // Pasos (a) y (b) fuera del ciclo
+            System.out.println("Por favor, ingresa tu nombre completo para poder iniciar la simulación de inversión.");
+            String nombreCompleto = in.nextLine().trim();
+    
+            do {
+                // Paso (c): Volver aquí para iterar simulaciones
                 System.out.println("Excelente, mucho gusto, " + nombreCompleto + ". ");
-                
                 System.out.println("Ahora, por favor, ingresa el monto que desearías invertir. Dame una cifra mayor a cero, sin comas ni puntos, sin símbolos de pesos ni centavos, y sin espacios.");
                 double monto = in.nextDouble();
                 in.nextLine();
@@ -87,16 +87,15 @@ public class TiempoDeInversion {
 
                 System.out.println("Gracias por utilizar nuestro simulador de inversiones. No podemos afirmar nada, pero sabemos que tu inversión será un éxito y que sus sueños están al alcance con nosotros.");
 
-            } else if (opcion.equals("2")) {
-                System.out.println("Perfecto, has escogido la opción 2. Lamento que hayas decidido abandonar tus sueños. Espero que algún día los retomes.");
-            } else {
-                System.out.println("Lo siento, no he podido reconocer la opción que has escogido. Por favor, inténtalo de nuevo.");
-            }
+                System.out.println("\n¿Deseas hacer otra simulación? (escribe 'si' para repetir o cualquier otra cosa para salir)");
+                hacerOtra = in.nextLine().trim().toLowerCase();
 
-            System.out.println("\n¿Deseas hacer otra simulación? (escribe 'si' para repetir o cualquier otra cosa para salir)");
-            hacerOtra = in.nextLine().trim().toLowerCase();
+            } while (hacerOtra.equals("si"));
 
-        } while (hacerOtra.equals("si"));
-
+        } else if (opcion.equals("2")) {
+            System.out.println("Perfecto, has escogido la opción 2. Lamento que hayas decidido abandonar tus sueños. Espero que algún día los retomes.");
+        } else {
+            System.out.println("Lo siento, no he podido reconocer la opción que has escogido. Por favor, inténtalo de nuevo.");
+        }
     }
 }
